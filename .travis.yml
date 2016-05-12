@@ -1,11 +1,19 @@
 language: elixir
 elixir:
-  - 1.2
+- 1.2
 otp_release:
-  - 18.2
+- 18.2
 sudo: false
 addons:
-  postgresql: '9.4' # Use postgres 9.4
+  postgresql: '9.4'
 before_script:
-# Create the test database
 - psql -c 'create database peepchat_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: H5Za5NYiJk/pEsF+5Xlt94XYKMInJQ2H7s8IBGkAJ4hOPMeEr2A27Ajo7wjrZkbmUm9WTDdTRJXJNiKqDKNBkUj2lYxLDJkkP6dzg/6G+jEw/bBYiKfKNatCWxvRI+q1N/39O57hRAcdPF95W+6WImDhvcRdSzaGpCNzSAFEM3q+dMMcWhq2EH+mYrcAgUWT5JXw9k4qncsoLga3lEM+ZH0NvfJ2iLaLpOz2Z7h6XZRn9dNkHznw9ja5Ic73s/3QG4bFT/SNNv3qOCBklv6XZjiluaR/odWMW5BwJuMBAiMVD0pm/1gPjQr1N6pWviiLvvru0KFPKCxCpNTQjJCELpV2HHFDcyUyjSF1GczuN9v5jH2k5qsJyZkIAbzQTbHKTLjS+vTEQmVClZvBmn8KY3yOGVRCcReOvqA75kK52ZStSK4r0Hf2jeBHPGJBR5r1obdmTs6EWvgfh0IDbI/smpbhPSHhkTJOkX4C29wr48Z1k78Z+HGpQSgE0HGtghJ6aW/DSss0BmSiU+G43zUpyo1Enon2Gb2oxeK5sHjc9ip9/oOxlceB62eUtEP84m4xzbi6FcRuYnFkczIgO2FWYp85mz5xXzoOyOZl/P1TcrgNXe4qVQhVG9KrrA7AFEjvURKknFC85KF5HeTGAaBM1PpB0mTkNubNEkbbqoFT2u8=
+  app: rocky-gorge-27459
+  on:
+    repo: h3h/peepchat-api
+notifications:
+  email: false
