@@ -8,6 +8,8 @@ addons:
   postgresql: '9.4'
 before_script:
 - psql -c 'create database peepchat_test;' -U postgres
+env:
+- GUARDIAN_SECRET_KEY=G0AODEwiRdVrkkRGmaBRWkrdat/Pcnh1YkB4VQECL9mvD/r+K5lu3G4NtqZxe1kP
 deploy:
   provider: heroku
   api_key:
